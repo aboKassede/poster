@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lina Medical Center</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            color: #333;
+        }
+
+        header {
+            background-color: #1f2937;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #fbbf24;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 70vh;
+            background-image: url('https://via.placeholder.com/1920x1080');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero button {
+            background-color: #fbbf24;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero button:hover {
+            background-color: #d97706;
+        }
+
+        .content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* New Grid layout for boxes */
+        .boxes-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .box {
+            background: white;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .box p {
+            color: #555;
+        }
+
+        .card {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .card-content h3 {
+            margin-top: 0;
+        }
+
+        .card-content p {
+            color: #555;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer a {
+            color: #fbbf24;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #d97706;
+        }
+        .box {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .box h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .stakeholder-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .stakeholder-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .stakeholder-list i {
+        font-size: 1.5rem;
+        margin-right: 10px;
+        color: #fbbf24;
+    }
+
+    .stakeholder-list strong {
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .stakeholder-list p {
+        margin: 0;
+        color: #555;
+        font-size: 0.9rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        text-align: center;
+        color: #333;
+    }
+    /* Responsive Grid */
+    @media (max-width: 768px) {
+        .boxes-container {
+            grid-template-columns: 1fr; /* 1 column on small screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero h2 {
+            font-size: 1.8rem; /* smaller font size for small screens */
+        }
+        .hero p {
+            font-size: 1rem;
+        }
+    }
+        .image-section img {
+            width: 90%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
+        }
+        .container {
+            /* display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px; */
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 3 columns */
+            gap: 1.5rem;
+            margin-top: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .text-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            direction: rtl;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+        .text-section h4 {
+            
+            direction: rtl;
+            text-align: right;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+        }
+        .text-section {
+    
+            padding: 1rem;
+            background-color: #f0f0f097; /* Light gray background color */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+            color: #333; /* Text color */
+            text-align: right; /* Align the text to the right */
+        }
+        
+
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <h1>"Lina Medical Center" </h1>
+        <nav>
+            <a href="index.html">Our website</a>
+        </nav>
+    </header>
+
+    
+
+    <section class="content">
+
+        <div class="container">
+            <!-- תצוגת התמונה -->
+            <div class="image-section">
+                <img src="persona.jpeg" alt="תמונה" />
+            </div>
+    
+            <!-- תצוגת ההסבר -->
+            <div class="text-section">
+                <h2>"Lina Medical Center"</h2>
+                <h4>
+                    הארגון הוא מרפאה פרטית בשם בבעלות ד"ר לואי מחאמיד, מומחה לרפואת ילדים ורופא משפחה. המרפאה ממוקמת בעיר אום אל-פחם ומשמשת כמרכז רפואי למשפחות וילדים בקהילה המקומית והאזורית.
+                    עיקר הלקוחות של המרפאה הם הורים לילדים בגילאים שונים, המחפשים שירות רפואי מקצועי, זמין ואמין עבור ילדיהם ובני משפחתם.
+                    מטרת הארגון, שהוא עסק פרטי, היא:
+                    •	לספק שירות רפואי איכותי, מותאם אישית וממוקד במשפחה.
+                    •	לשפר את חוויית המטופלים על ידי ייעול תהליכי העבודה.
+                    •	לחזק את הקשר עם הקהילה המקומית ולהציע פתרונות בריאותיים מתקדמים ונגישים.
+                </h4>
+            </div>
+        </div>
+
+
+        <!-- Grid of 9 Boxes -->
+        <div class="boxes-container">
+            <div class="box">
+                <div class="box">
+                    <h3>בעלי העניין בתור ניהול</h3>
+                    <ul class="stakeholder-list">
+                        <li>
+                            <i class="fas fa-user"></i> <strong>המשתמשים (לקוחות)</strong>
+                            <p>קביעת תור, קבלת התראות וניהול פרופיל אישי.</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-users"></i> <strong>הצוות במרפאה</strong>
+                            <p>ניהול התורים, עדכון ושינוי תורים.</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-cogs"></i> <strong>מפתחי המערכת</strong>
+                            <p>תכנון, פיתוח ותמיכה טכנית.</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-briefcase"></i> <strong>מנהל המערכת</strong>
+                            <p>ניהול המערכת ושיפורים עתידיים.</p>
+                        </li>
+                    </ul>
+                    <h4>קוגניציה מבוזרת</h4>
+                    <p>המשימות מחולקות בין בעלי העניין, והממערכת מספקת תמיכה חכמה לניהול שיתוף מידע וקבלת החלטות.</p>
+                </div>
+             </div>
+            <div class="box">
+                <div class="box">
+                    <h3>Boundary Objects באתר לניהול תורים</h3>
+                    <ul class="stakeholder-list">
+                        <li>
+                            <i class="fas fa-database"></i> <strong>מערכת התורים (Database)</strong>
+                            <p>מאגר המידע שבו נשמרים כל התורים הוא נקודת חיבור בין הצוות, המטופלים והמערכת הטכנולוגית.</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-bell"></i> <strong>התראות (Notifications)</strong>
+                            <p>ההתראות (על תור קרוב, שינוי או ביטול) מתווכות בין האפליקציה למשתמשים.</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-laptop-code"></i> <strong>ממשק המשתמש (UI/UX)</strong>
+                            <p>הממשק משמש כנקודת חיבור בין המשתמשים לבין המערכת.</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-alt"></i> <strong>לוח זמנים (Calendar View)</strong>
+                            <p>ייצוג חזותי של התורים הזמינים מסייע למשתמשים ולצוות להבין במהירות את המידע.</p>
+                        </li>
+                    </ul>
+                    <h4>סיכום:</h4>
+                    <p>ה-Boundary Objects בפיצ'ר זה משמשים כאמצעי תיווך בין בעלי העניין השונים, מה שמאפשר שיתוף פעולה ותיאום למרות ההבדלים בין הצרכים והפרספקטיבות שלהם.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box">
+                    <h3>עקרונות Flow במערכת ניהול תורים</h3>
+                    <h4>Flow אישי (Individual Flow):</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <strong>בהירות מטרות ומשימות</strong></li>
+                        <li><i class="fas fa-bell"></i> <strong>משוב מיידי</strong></li>
+                        <li><i class="fas fa-balance-scale"></i> <strong>איזון בין אתגר ליכולת</strong></li>
+                        <li><i class="fas fa-eye-slash"></i> <strong>מניעת הסחות דעת</strong></li>
+                    </ul>
+    
+                    <h4>Flow קבוצתי (Group Flow):</h4>
+                    <ul>
+                        <li><i class="fas fa-users"></i> <strong>מטרות משותפות</strong></li>
+                        <li><i class="fas fa-comments"></i> <strong>תקשורת פתוחה</strong></li>
+                        <li><i class="fas fa-sync-alt"></i> <strong>תיאום ותלות הדדית</strong></li>
+                        <li><i class="fas fa-chart-line"></i> <strong>משוב קבוצתי</strong></li>
+                        <li><i class="fas fa-users-cog"></i> <strong>איזון בין תפקידים</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+            <div class="box">
+                <h3>עקרונות SDT במערכת ניהול תורים</h3>
+                <h4>1. אוטונומיה (Autonomy):</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>בחירה גמישה</strong>
+                        <p>המשתמשים יכולים לבחור תור מתוך מגוון זמנים ושירותים בהתאמה להעדפותיהם האישיות.</p>
+                    </li>
+                    <li><i class="fas fa-cogs"></i> <strong>התאמה אישית</strong>
+                        <p>פרופיל אישי שמאפשר למשתמשים לנהל את העדפותיהם, כמו תזכורות ושירותים מועדפים.</p>
+                    </li>
+                    <li><i class="fas fa-bell-slash"></i> <strong>אינטראקציה לא פולשנית</strong>
+                        <p>הודעות מתוזמנות שמגיעות רק כאשר יש צורך, כדי לא להפריע למשתמש.</p>
+                    </li>
+                </ul>
+
+                <h4>2. יכולת (Competence):</h4>
+                <ul>
+                    <li><i class="fas fa-thumbs-up"></i> <strong>ממשק ידידותי</strong>
+                        <p>ממשק אינטואיטיבי שמאפשר למשתמשים לקבוע ולנהל תורים בקלות ובמהירות.</p>
+                    </li>
+                    <li><i class="fas fa-comment-alt-check"></i> <strong>משוב מיידי</strong>
+                        <p>הודעות ברורות כמו "התור נקבע בהצלחה" שמחזקות את תחושת ההצלחה והיכולת.</p>
+                    </li>
+                    <li><i class="fas fa-ban"></i> <strong>מניעת טעויות</strong>
+                        <p>מנגנונים לחסימת זמני תורים נתפסים עוזרים למנוע טעויות בהזמנת תור.</p>
+                    </li>
+                    <li><i class="fas fa-headset"></i> <strong>שירות לקוחות נגיש</strong>
+                        <p>אפשרות לפנות בקלות לתמיכה במקרה של קושי או שאלה.</p>
+                    </li>
+                </ul>
+
+                <h4>3. שייכות (Relatedness):</h4>
+                <ul>
+                    <li><i class="fas fa-users"></i> <strong>תקשורת בין משתמשים וצוות</strong>
+                        <p>המשתמשים יכולים לקבל עדכונים מהצוות בזמן אמת, למשל שינוי בתור או הצעת שירותים נוספים.</p>
+                    </li>
+                    <li><i class="fas fa-bell"></i> <strong>תזכורות מותאמות אישית</strong>
+                        <p>התראות מותאמות אישית שמעוררות תחושת אכפתיות ומזכירות למשתמשים תורים קרובים.</p>
+                    </li>
+                    <li><i class="fas fa-star"></i> <strong>יצירת חוויית קהילה</strong>
+                        <p>הצגת חוות דעת והמלצות של משתמשים אחרים מחזקת את תחושת השייכות למערכת.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>תיאור הארכיטקטורה של הפתרון</h3>
+                <h4>1. דור ה-Web</h4>
+                <ul>
+                    <li><i class="fas fa-server"></i> <strong>Web 2.0</strong>
+                        <p>המערכת מבוססת על דור 2 של Web, עם מאפיינים עיקריים כמו מבנה Client-Server ושימוש בטכנולוגיות כגון HTML, CSS ו-jQuery.</p>
+                    </li>
+                </ul>
+
+                <h4>2. שימוש ב-SaaS או SOA</h4>
+                <ul>
+                    <li><i class="fas fa-times"></i> <strong>לא מבוססת על SaaS</strong>
+                        <p>המערכת אינה מבוססת על SaaS או SOA והיא פועלת באופן עצמאי על גבי דפדפני המשתמש ללא צורך בשירותים חיצוניים.</p>
+                    </li>
+                </ul>
+
+                <h4>3. סוג הארכיטקטורה</h4>
+                <ul>
+                    <li><i class="fas fa-code"></i> <strong>Client-Side Only</strong>
+                        <p>המערכת מאמצת גישה של Client-Side Only עם טכנולוגיות Frontend בלבד כמו HTML, CSS, jQuery ו-Bootstrap 5.</p>
+                    </li>
+                    <li><i class="fas fa-database"></i> <strong>ניהול נתונים מקומי</strong>
+                        <p>הנתונים מאוחסנים באופן מקומי באמצעות LocalStorage.</p>
+                    </li>
+                    <li><i class="fas fa-cloud-upload-alt"></i> <strong>פרסום ב-GitHub Pages</strong>
+                        <p>האתר מתארח על GitHub Pages לצורך פרסום קל ונגיש של קבצי HTML סטטיים.</p>
+                    </li>
+                </ul>
+
+                <h4>4. מבנה הארכיטקטורה (שכבות)</h4>
+                <ul>
+                    <li><i class="fas fa-layer-group"></i> <strong>Frontend (Client)</strong>
+                        <p>בניית הממשק משתמש באמצעות HTML, CSS ו-jQuery.</p>
+                    </li>
+                    <li><i class="fas fa-save"></i> <strong>אחסון מקומי</strong>
+                        <p>המערכת משתמשת ב-LocalStorage לאחסון הנתונים באופן מקומי.</p>
+                    </li>
+                    <li><i class="fas fa-cloud"></i> <strong>פרסום ב-GitHub Pages</strong>
+                        <p>הקבצים (HTML, CSS, JS) מאוחסנים ב-Repository ומפורסמים דרך GitHub Pages.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>מכניזמים של משחוק להגברת מוטיבציה</h3>
+
+                <h4>1. תגמולים ותמריצים (Rewards & Incentives)</h4>
+                <ul>
+                    <li><i class="fas fa-gift"></i> <strong>צבירת נקודות והנחות</strong>
+                        <p>לאחר כל הזמנת תור או השלמת משוב, המשתמש יכול לצבור נקודות או לקבל הנחה לשירותים עתידיים. מתן תגמול מחזק התנהגות חיובית ומעודד מעורבות חוזרת.</p>
+                    </li>
+                </ul>
+
+                <h4>2. משוב מיידי (Immediate Feedback)</h4>
+                <ul>
+                    <li><i class="fas fa-bell"></i> <strong>הודעה מיידית לאחר פעולה</strong>
+                        <p>לאחר הזמנת תור, המשתמש מקבל הודעה מיידית עם עיצוב מהנה שמאשר את הפעולה ומעודד משוב. תחושת השליטה והמשוב החיובי מגבירים את תחושת המסוגלות והמעורבות.</p>
+                    </li>
+                </ul>
+
+                <h4>3. הפיכת השגרה למשחק (Gamification of Routine)</h4>
+                <ul>
+                    <li><i class="fas fa-gamepad"></i> <strong>יצירת "רצף טיפולים"</strong>
+                        <p>המשתמש מקבל תגמול על הזמנת תורים בצורה קבועה לאורך זמן. הופך פעולות יומיומיות למשהו מהנה ומתגמל.</p>
+                    </li>
+                </ul>
+
+                <h4>סיכום</h4>
+                <p>מכניזמים אלו מספקים חוויית משתמש מרתקת, מגבירים את המוטיבציה לשימוש באתר, ויוצרים מעורבות חוזרת של המשתמשים. הבחירה במכניזמים המתאימים תתבסס על סוג המשתמשים והמטרות העיקריות של המערכת.</p>
+            </div>
+            <div class="box">
+                <h3>Box 7</h3>
+                <p>This is the content for the seventh box.</p>
+            </div>
+            <div class="box">
+                <h3>Box 8</h3>
+                <p>This is the content for the eighth box.</p>
+            </div>
+            <div class="box">
+                <h3>Box 9</h3>
+                <p>This is the content for the ninth box.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Lina Medical Center Page. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
