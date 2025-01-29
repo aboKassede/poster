@@ -300,6 +300,51 @@ a:hover {
         margin-bottom: 1rem;
     }
 }
+.profile-preferences {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            margin: 20px auto;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-preferences:hover {
+            transform: scale(1.02);
+        }
+
+        .preferences-title {
+            color: #4CAF50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .notification-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .notification-toggle label {
+            font-weight: bold;
+        }
+
+        .save-preferences-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .save-preferences-btn:hover {
+            background-color: #0056b3;
+        }
 
 
     </style>
@@ -331,6 +376,7 @@ a:hover {
             <div class="doctor-info">
                 <img src="person.jpg" alt="דוקטור לואי" class="doctor-image">
             </div>
+
             <div class="details-info">
                 <h1>פרטי המטופל</h1>
                 <form id="patientForm">
@@ -348,6 +394,23 @@ a:hover {
                         <button type="button" class="btn-secondary" id="viewHistory">הסטוריית תורים</button>
                     </div>
                 </form>
+            </div>
+
+            <!-- Profile Preferences Section -->
+            <div class="profile-preferences">
+                <h2 class="preferences-title">העדפות פרופיל</h2>
+                
+                <div class="notification-toggle">
+                    <label>הפעל התראות:</label>
+                    <input type="checkbox"  id="notificationsToggle" checked>
+                </div>
+
+                <label for="favoriteServices">שירותים מועדפים:</label>
+                <input type="text" id="favoriteServices" placeholder="הכנס שירות מועדף" value="VIP">
+                
+                <div class="buttons">
+                    <button type="button" class="save-preferences-btn" id="savePreferences">שמור העדפות</button>
+                </div>
             </div>
         </div>
         
