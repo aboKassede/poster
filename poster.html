@@ -2,9 +2,8 @@
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>Lina Medical Center</title>
+    <title>Lina Medical Center - Poster Layout</title>
     <style>
-        /* Previous styles remain the same */
         * {
             margin: 0;
             padding: 0;
@@ -14,74 +13,79 @@
         body {
             font-family: "Segoe UI", Tahoma, sans-serif;
             color: #333;
-            background: #f5f5f5;
+            background: #1a1a1a;
             line-height: 1.6;
+            padding: 2rem;
         }
 
-        .container {
-            max-width: 1400px;
+        .poster {
+            max-width: 1800px;
             margin: 0 auto;
-            padding: 2rem;
-            background-color: #000000;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
+            padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
-        header.hero {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .header {
+            grid-column: 1 / -1;
             text-align: center;
             background: #c28a21;
             color: #000000;
-            padding: 2.5rem 1rem;
-            position: relative;
-            overflow: hidden;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
         }
 
-        .hero h1 {
-            font-size: 2.6rem;
-            margin-bottom: 0.6rem;
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
         }
 
-        .hero p {
-            font-size: 1.6rem;
-            max-width: 800px;
-            line-height: 1.4;
+        .header p {
+            font-size: 1.5rem;
         }
 
         .section {
             background: #c09c5f;
             border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 2rem;
+            padding: 1.5rem;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.2s ease;
+            height: fit-content;
         }
 
         .section:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .section.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .section.double-width {
+            grid-column: span 2;
         }
 
         .section-title {
             color: #000000;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             border-bottom: 2px solid #000000;
             padding-bottom: 0.5rem;
         }
 
         .text-content {
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
 
         .image-container {
-            max-width: 100%;
-            margin: 1rem 0;
+            width: 100%;
+            margin: 0.5rem 0;
             text-align: center;
         }
 
@@ -89,32 +93,33 @@
             max-width: 100%;
             height: auto;
             border-radius: 8px;
-            margin-bottom: 1rem;
         }
 
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin: 1rem 0;
+            gap: 1rem;
             width: 100%;
         }
 
         .grid-4 .image-wrapper {
-            aspect-ratio: 4/3;
             width: 100%;
             position: relative;
             overflow: hidden;
             border-radius: 8px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
         }
 
         .grid-4 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; 
             border-radius: 8px;
             transition: transform 0.3s ease;
         }
@@ -123,17 +128,11 @@
             transform: scale(1.05);
         }
 
-        @media (max-width: 768px) {
-            .grid-4 {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .text-image-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
+            gap: 1.5rem;
+            align-items: start;
         }
 
         ul {
@@ -142,41 +141,105 @@
             padding-right: 1.5rem;
         }
 
-        h3 {
-            color: #000000;
-            margin-bottom: 1rem;
+        @media (max-width: 1200px) {
+            .poster {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .grid-4,
-            .text-image-section {
+            .poster {
                 grid-template-columns: 1fr;
             }
             
-            .hero h1 {
-                font-size: 2rem;
+            .section.double-width {
+                grid-column: auto;
             }
             
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .section {
-                padding: 1.5rem;
+            .text-image-section {
+                grid-template-columns: 1fr;
             }
         }
+
+        strong {
+            color: #000000;
+        }
+
+        .poster-lower-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            background-color: #000000;
+            background-image: url("https://www.transparenttextures.com/patterns/crossword.png");
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Add new styles for the containers */
+        .vertical-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            grid-column: 1; /* Explicitly place on the left */
+        }
+
+        .main-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            grid-column: 2; /* Explicitly place on the right */
+        }
+
+        /* Make vertical cards more compact */
+        .vertical-cards .section {
+            margin: 0;
+            padding: 1rem;
+        }
+
+        .vertical-cards .text-image-section {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+        }
+
+        .vertical-cards .text-content {
+            font-size: 0.9rem;
+        }
+
+        /* Keep main cards spacious */
+        .main-cards .section {
+            margin: 0;
+            padding: 1.5rem;
+        }
+
+        .main-cards .text-image-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .poster-lower-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .vertical-cards, .main-cards {
+                grid-column: 1;
+            }
+        }
+        
     </style>
 </head>
 <body>
-    <header class="hero">
-        <h1>Lina Medical Center</h1>
-        <p>Creativity And Cognition In Requirements Engineering - Final Project</p>
-    </header>
+    <div class="poster">
+        <header class="header">
+            <h1>Lina Medical Center</h1>
+            <p>Creativity And Cognition In Requirements Engineering - Final Project</p>
+        </header>
 
-    <div class="container">
-        <!-- About Section -->
-        <section class="section">
-            <h2 class="section-title">אודות Lina Medical Center</h2>
+        <section class="section double-width">
+            <h2 class="section-title">1. אודות Lina Medical Center</h2>
             <div class="text-content">
                 <p>הארגון שבנינו את הפרויקט מסביבו הוא מרפאה פרטית בשם "Lina Medical Center" בבעלות ד"ר לואי מחאמיד, מומחה לרפואת ילדים ורופא משפחה. המרפאה ממוקמת בעיר אום אל-פחם ומשמשת כמרכז רפואי למשפחות וילדים בקהילה המקומית והאזורית.</p>
                 <p>מטרת הארגון, שהוא עסק פרטי, היא:</p>
@@ -188,324 +251,339 @@
             </div>
         </section>
 
-        <!-- Challenges Section -->
         <section class="section">
-            <h2 class="section-title">אתגרים מרכזיים שזוהו במהלך הראיונות</h2>
-            <div class="text-content">
-                <ul>
-                    <li>זמני המתנה ארוכים: מספר התורים ביום אחד הוא בטווח 50–100</li>
-                    <li>מקרים דחופים: טיפול עדיפות יוצר עומסים לשאר המטופלים.</li>
-                    <li>תיעוד רשומות רפואיות: מעבר חלקי למערכת דיגיטלית לעומת תיקי נייר.</li>
-                    <li>פערי הכשרה טכנולוגית: לא כל הצוות בקיא בשימוש בכלים טכנולוגים.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Dr. Louay Profile -->
-        <section class="section">
-            <h2 class="section-title">ד"ר לואי מחאמיד - פרסונה</h2>
+            <h2 class="section-title">2. ד"ר לואי מחאמיד - פרסונה</h2>
             <div class="image-container">
                 <img src="dr-louay-persona.png" alt="Dr. Louay Profile">
             </div>
         </section>
+        <div>
+            <section class="section">
+                <h2 class="section-title">3. אתגרים מרכזיים שזוהו במהלך הראיונות</h2>
+                <div class="text-content">
+                    <ul>
+                        <li>זמני המתנה ארוכים: מספר התורים ביום אחד הוא בטווח 50–100</li>
+                        <li>מקרים דחופים: טיפול עדיפות יוצר עומסים לשאר המטופלים.</li>
+                        <li>תיעוד רשומות רפואיות: מעבר חלקי למערכת דיגיטלית לעומת תיקי נייר.</li>
+                        <li>פערי הכשרה טכנולוגית: לא כל הצוות בקיא בשימוש בכלים טכנולוגים.</li>
+                    </ul>
+                </div>
+            </section>
 
-        <!-- Empathy Map -->
+            <section class="section" style="margin-top: 40px;">
+                <h2 class="section-title">4. שביעות רצון מטופלים</h2>
+                <div class="image-container">
+                    <img src="patients_satasfaction.png" alt="Patient Satisfaction">
+                </div>
+            </section>
+        </div>
         <section class="section">
-            <h2 class="section-title">מפת אמפתיה - ד"ר לואי</h2>
+            <h2 class="section-title">5. מפת אמפתיה - ד"ר לואי</h2>
             <div class="image-container">
                 <img src="empathy-map.png" alt="Empathy Map">
             </div>
         </section>
 
-        <!-- Stakeholders -->
         <section class="section">
-            <h2 class="section-title">בעלי עניין ותפקידים</h2>
+            <h2 class="section-title">6. בעלי עניין ותפקידים</h2>
             <div class="image-container">
                 <img src="stakeholders.png" alt="Stakeholders">
             </div>
         </section>
 
-        <!-- Functional Requirements -->
-        <section class="section">
-          <h2 class="section-title">דרישות פונקציונליות לפי תפקיד</h2>
-          <div class="grid-4">
-              <div class="image-wrapper">
-                  <img src="doctor_requirements.png" alt="Doctor Requirements">
-              </div>
-              <div class="image-wrapper">
-                  <img src="nurse_requirements.png" alt="Nurse Requirements">
-              </div>
-              <div class="image-wrapper">
-                  <img src="patients_requirements.png" alt="Patients Requirements">
-              </div>
-              <div class="image-wrapper">
-                  <img src="owner_requirements.png" alt="Owner Requirements">
-              </div>
-          </div>
-      </section>
-
-        <!-- Non-functional Requirements -->
-        <section class="section">
-            <h2 class="section-title">דרישות לא פונקציונליות</h2>
-            <div class="image-container">
-                <img src="non_functional_requirements.png" alt="Non-functional Requirements">
-            </div>
-        </section>
-
-        <!-- Additional Requirements -->
-        <section class="section">
-            <h2 class="section-title">דרישות נוספות</h2>
-            <div class="image-container">
-                <img src="other_requirements.png" alt="Other Requirements">
-            </div>
-        </section>
-
-        <!-- Patient Satisfaction -->
-        <section class="section">
-            <h2 class="section-title">שביעות רצון מטופלים</h2>
-            <div class="image-container">
-                <img src="patients_satasfaction.png" alt="Patient Satisfaction">
-            </div>
-        </section>
-
-        <!-- Distributed Cognition -->
-        <section class="section">
-            <h2 class="section-title">קוגניציה מבוזרת</h2>
-            <div class="text-image-section">
-                <div class="text-content">
-                    <p>כאשר מטופל מזמין תור דרך מערכת הזמנת התורים באתר המרפאה, המערכת פועלת באופן מבוזר כדי להבטיח הכנה מלאה לקראת הגעתו. תחילה, היא בודקת את זמינות הרופא ביומנו ואת זמינות חדר הטיפול במערכת נפרדת. לאחר אישור התור, פרטי המטופל מועברים לרופא דרך מערכת ניהול התיקים הרפואיים, מה שמאפשר לו לעיין בהיסטוריה הרפואית ולהתכונן לפגישה. במקביל, האחיות מקבלות התראה על התור הקרוב ויכולות להכין מראש את הציוד והחומרים הנדרשים לטיפול. כל שלב בתהליך מתבצע באופן עצמאי על ידי גורמים שונים במערכת, אך כולם פועלים בסנכרון מלא כדי להבטיח חוויה רציפה, יעילה ומדויקת למטופל.
-                    </p>
+        <section class="section double-width">
+            <h2 class="section-title">7. דרישות פונקציונליות לפי בעל עניין</h2>
+            <div class="grid-4">
+                <div class="image-wrapper">
+                    <img src="doctor_requirements.png" alt="Doctor Requirements">
                 </div>
+                <div class="image-wrapper">
+                    <img src="nurse_requirements.png" alt="Nurse Requirements">
+                </div>
+                <div class="image-wrapper">
+                    <img src="patients_requirements.png" alt="Patients Requirements">
+                </div>
+                <div class="image-wrapper">
+                    <img src="owner_requirements.png" alt="Owner Requirements">
+                </div>
+            </div>
+        </section>
+        <div>
+            <section class="section">
+                <h2 class="section-title">8. דרישות לא פונקציונליות</h2>
                 <div class="image-container">
-                    <img src="distributed_conginition.png" alt="Distributed Cognition">
+                    <img src="non_functional_requirements.png" alt="Non-functional Requirements">
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Boundary Objects -->
-        <section class="section">
-            <h2 class="section-title">אובייקטי גבול באתר לניהול תורים</h2>
-            <div class="text-image-section">
-                <div class="text-content">
-                  <p><strong>מערכת התורים (Database) של התורים:</strong></p>
-                  <p>
-                      מאגר המידע שבו נשמרים כל התורים משמש כנקודת חיבור מרכזית בין הצוות, המטופלים והמערכת הטכנולוגית.
-                      המטופלים יכולים לצפות בתורים פנויים ולקבוע תור, הצוות הרפואי יכול לעדכן נתונים, והמפתחים מבטיחים שהמערכת תפעל באופן תקין.
-                  </p>
-              
-                  <p><strong>התראות (Notifications):</strong></p>
-                  <p>
-                      ההתראות (על תור קרוב, שינוי או ביטול) משמשות כמתווך בין המערכת לבין המשתמשים.
-                      הן מאפשרות למשתמשים להתעדכן בזמן אמת ומהוות כלי מרכזי לניהול תקשורת עם המטופלים.
-                  </p>
-              
-                  <p><strong>ממשק המשתמש (UI/UX):</strong></p>
-                  <p>
-                      הממשק מהווה נקודת חיבור בין המשתמשים לבין המערכת, ומאפשר גישה נוחה לכל הפונקציות הזמינות.
-                      עיצוב ברור ונגיש מסייע לכל בעלי העניין להשתמש בפיצ'רים באופן אינטואיטיבי ויעיל.
-                  </p>
-              
-                  <p><strong>לוח זמנים (Calendar View):</strong></p>
-                  <p>
-                      תצוגה חזותית של התורים הזמינים מאפשרת למשתמשים ולצוות להבין במהירות את הלו"ז.
-                      מבנה אחיד של לוח הזמנים יוצר שפה משותפת בין כל הצדדים ומייעל את תהליך קביעת התורים.
-                  </p>
-              </div>
-              
-              <div class="image-container">
-                  <img src="boundary_objects.png" alt="Boundary Objects">
-              </div>
-            </div>
-        </section>
+            <section class="section" style="margin-top: 40px;">
+                <h2 class="section-title">9. דרישות נוספות</h2>
+                <div class="image-container">
+                    <img src="other_requirements.png" alt="Other Requirements">
+                </div>
+            </section>
+        </div>
+    </div>
 
-        <!-- Flow Creation -->
-        <section class="section">
-            <h2 class="section-title">יצירת מצב של "Flow"</h2>
-            <div class="text-image-section">
-              <div class="text-content">
-                <p>
-                    1- בהירות מטרות ומשימות:  
-                    ממשק ברור ואינטואיטיבי שמאפשר למשתמש לקבוע תור, לבדוק זמינות ולעדכן נתונים במהירות.  
-                    שימוש בהנחיות קצרות (Tooltips) להבהרת פעולות באתר.  
-                </p>
-                
-                <p>
-                    2- מניעת הסחות דעת:  
-                    עיצוב נקי וממוקד עם מינימום עומס חזותי.  
-                    התראות לא פולשניות, מוצגות רק בעת הצורך.  
-                </p>
-            
-                <p>
-                    3- איזון בין אתגר ליכולת:  
-                    חוויית משתמש מותאמת לכל הרמות – ממתחילים ועד מתקדמים.  
-                    לדוגמה, אפשרות לקביעת תור בלחיצה אחת למתחילים, לצד ניהול תורים מתקדם למשתמשים מנוסים.  
-                </p>
-            
-                <p>
-                    4- משוב מיידי:  
-                    הצגת הודעות בזמן אמת כמו "התור נקבע בהצלחה" או "השעה אינה זמינה – בחר זמן אחר".  
-                    עדכון מיידי של לוח הזמנים לאחר פעולות המשתמש.  
-                </p>
-            </div>
-            
-              <div class="image-container">
-                  <img src="feature_flow.png" alt="Feature Flow">
-              </div>
-            </div>
-        </section>
+    <div class="poster-lower-section">
+        <div class="vertical-cards">
+            <section class="section">
+                <h2 class="section-title">10. קוגניציה מבוזרת</h2>
+                <div class="text-image-section">
+                    <div class="text-content">
+                        <h2>תיאום מבוזר בהזמנת תורים</h2>
+                        <p>
+                            כאשר מטופל מזמין תור דרך מערכת הזמנת התורים באתר המרפאה, המערכת מבצעת תהליך מבוזר להבטחת הכנה מיטבית לקראת הגעתו. 
+                            כל שלב מתבצע על ידי רכיב עצמאי, אך כולם משתפים פעולה בסנכרון מלא ליצירת חוויית שירות חלקה ויעילה.
+                        </p>
+                    
+                        <h3>תהליך ההכנה</h3>
+                        <ul>
+                            <li><strong>בדיקת זמינות:</strong> המערכת בוחנת את יומן הרופא ומוודאת זמינות חדרי טיפול.</li>
+                            <li><strong>העברת מידע:</strong> לאחר אישור התור, פרטי המטופל נשלחים למערכת ניהול התיקים הרפואיים.</li>
+                            <li><strong>הכנת הרופא:</strong> הרופא מקבל גישה להיסטוריה הרפואית של המטופל ומתכונן לפגישה.</li>
+                            <li><strong>עדכון הצוות הרפואי:</strong> האחיות מקבלות התראה על התור הקרוב ומכינות מראש את הציוד והחומרים הנדרשים.</li>
+                        </ul>
+                                  
+                    </div>
+                    <div class="image-container">
+                        <img src="distributed_conginition.png" alt="Distributed Cognition">
+                    </div>
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2 class="section-title">12. יצירת מצב של "Flow"</h2>
+                <div class="text-image-section">
+                    <div class="image-container">
+                        <img src="feature_flow.png" alt="Feature Flow">
+                    </div>
+                    <div class="text-content">
+                        <h2>יצירת מצב זרימה (Flow) בהנדסת דרישות</h2>
+                    
+                        <h3>1. בהירות מטרות ומשימות</h3>
+                        <p>
+                            ממשק ברור ואינטואיטיבי המאפשר למשתמש לבצע משימות בקלות – קביעת תור, בדיקת זמינות ועדכון נתונים במהירות.  
+                            שימוש בהנחיות קצרות (Tooltips) למניעת חוסר ודאות ולשיפור ההתמצאות באתר.
+                        </p>
+                    
+                        <h3>2. מניעת הסחות דעת</h3>
+                        <p>
+                            עיצוב נקי וממוקד עם מינימום עומס חזותי לשיפור הריכוז.  
+                            התראות לא פולשניות שמופיעות רק בעת הצורך כדי למנוע הפרעות למשתמש.
+                        </p>
+                    
+                        <h3>3. איזון בין אתגר ליכולת</h3>
+                        <p>
+                            חוויית משתמש מותאמת לכל הרמות – החל ממתחילים ועד משתמשים מנוסים.  
+                            לדוגמה: אפשרות לקביעת תור בכמה ליחצות למתחילים, לצד ממשק ניהול תורים מתקדם למשתמשים מיומנים.
+                        </p>
+                    
+                        <h3>4. משוב מיידי</h3>
+                        <p>
+                            הצגת הודעות בזמן אמת כמו **"התור נקבע בהצלחה"** או **"השעה אינה זמינה – בחר זמן אחר"**.  
+                            עדכון מיידי של לוח הזמנים לאחר כל פעולה, כך שהמשתמש חש שליטה מלאה במערכת.
+                        </p>
+                    </div>
+                    
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2 class="section-title">14. ארכיטקטורת הפתרון</h2>
+                <div class="text-image-section">
+                    <div class="text-content">
+                        <p>
+                            <strong>1- סוג הארכיטקטורה</strong><br>
+                            לקוח-שרת: הנתונים מעובדים ומנוהלים בשרת אחורי, בעוד החלק הקדמי אחראי על חוויית המשתמש.<br>
+                            ניהול נתונים בשרת: המערכת משתמשת במסד נתונים מרוחק לניהול תורים ומידע רפואי.<br>
+                            אירוח בשרת חיצוני: האתר והממשק לתקשורת בין הלקוח לשרת מתארחים בענן (למשל, ‏Firebase, ‏AWS או Heroku) כדי להבטיח זמינות וביצועים.
+                        </p>
+                        
+                        <p>
+                            <strong>2- דור ה-Web</strong><br>
+                            הפתרון מבוסס על רשת 2.0, עם ארכיטקטורת לקוח-שרת.<br>
+                            שימוש בטכנולוגיות ‏HTML, ‏CSS ו-jQuery ליצירת ממשק משתמש דינמי.
+                        </p>
+                        
+                        <p>
+                            <strong>3- שימוש בתוכנה כשירות (SaaS) או בארכיטקטורת שירותים (SOA)</strong><br>
+                            המערכת מבוססת על תוכנה כשירות (SaaS) ומנוהלת בענן, כך שמשתמשים יכולים לגשת לשירותים דרך הדפדפן ללא צורך בהתקנת תוכנה.
+                        </p>
+                    </div>
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2 class="section-title">15. מבנה הארכיטקטורה</h2>
+                <div class="text-image-section">
+                    <div class="image-container">
+                        <img src="system_architecture.png" alt="System Architecture">
+                    </div>
+                    <div class="text-content">
+                        <p>
+                            <strong>לקוח (חזית המערכת):</strong> ממשק המשתמש נבנה באמצעות ‏HTML, ‏CSS, jQuery ו-Bootstrap 5.
+                            <br>
+                            <strong>השרת (תהליכים פנימיים):</strong> השרת מנהל את הלוגיקה העסקית ומספק שירותים ללקוחות באמצעות ‏Node.js, ‏Express או Flask.
+                            <br>
+                            <strong>מסד נתונים:</strong> הנתונים נשמרים בשרת עם ‏MongoDB, ‏PostgreSQL או Firebase Realtime Database.
+                            <br>
+                            <strong>אירוח בשרת חיצוני:</strong> האתר מתארח בשרת ייעודי או בענן ומספק חוויית שימוש רציפה.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    
+        <div class="main-cards">
+            <section class="section">
+                <h2 class="section-title">11. אובייקטי גבול באתר לניהול תורים</h2>
+                <div class="text-image-section">
+                    <!-- Original content -->
+                    
+                    <div class="text-content">
+                    
+                        <h3>📌 מאגר התורים – בסיס נתונים משותף</h3>
+                        <p>מאפשר עדכון וסנכרון תורים בין מטופלים, צוות רפואי, ומערכת ניהול התיקים.</p>
+                    
+                        <h3>🔔 התראות – עדכון בזמן אמת</h3>
+                        <p>מבטיחות שכל שינוי בתורים מועבר מידית לכל המשתמשים הרלוונטיים.</p>
+                    
+                        <h3>🖥️ ממשק משתמש – נגישות ויזואלית</h3>
+                        <p>מאפשר אינטראקציה פשוטה עם המערכת בהתאם לתפקיד המשתמש.</p>
+                    
+                        <h3>📅 לוח זמנים – תיאום חוצה גורמים</h3>
+                        <p>מציג תמונת מצב אחידה לכל המשתמשים, משפר ניהול ותכנון זמנים.</p>
+                    
+                        <p>
+                            **לסיכום:** אובייקטי הגבול מחברים בין רכיבים מבוזרים, משפרים תיאום, 
+                            ומייעלים את ניהול התורים תוך הפחתת טעויות ועומס קוגניטיבי.
+                        </p>
+                    </div>
 
-
-        <!-- Group Flow Creation -->
-        <section class="section">
-          <h2 class="section-title">יצירת מצב של "Group Flow"</h2>
-          <div class="text-image-section">
-            <div class="text-content">
-              <p>
-                  1- מטרות משותפות:  
-                  לכל חברי הצוות מטרה ברורה: ניהול תורים יעיל ומתן מענה מיטבי למטופלים.  
-                  הצוות משתמש באותם Boundary Objects (כגון לוח זמנים משותף) שמגדירים את היעדים המשותפים.  
-              </p>
-          
-              <p>
-                  2- איזון בין תפקידים:  
-                  המערכת מתאימה הרשאות לפי תפקיד: הצוות מנהל תורים, המטופלים קובעים תורים.  
-              </p>
-          
-              <p>
-                  3- תקשורת פתוחה:  
-                  שילוב מערכת הודעות פנימית שמאפשרת עדכון ושיתוף מידע בזמן אמת.  
-                  לדוגמה: "מטופל ביקש לשנות תור ליום שני ב-16:00."  
-              </p>
-          
-              <p>
-                  4- תיאום ותלות הדדית:  
-                  כל שינוי בתורים מתעדכן מיידית אצל כל המשתמשים, כך שכולם עובדים עם נתונים אחידים.  
-                  לכל חבר בצוות יש שקיפות לגבי פעולות אחרים, למשל באמצעות סימונים ברורים בלוח הזמנים.  
-              </p>
-          
-              <p>
-                  5- משוב קבוצתי:  
-                  הצוות נחשף לנתונים סטטיסטיים כמו עומס יומי, עמידה בזמנים וכו', כדי לשפר תהליכים.  
-              </p>
-            </div>
-          
-            <div class="image-container">
-                <img src="group_feature_flow.png" alt="Group Feature Flow">
-            </div>
-          </div>
-      </section>
-
-
-        <!-- SDT theory -->
-        <section class="section">
-          <h2 class="section-title">SDT Theory</h2>
-          <div class="text-image-section">
-            <div class="text-content">
-              <p>
-                  <strong>1- אוטונומיה (Autonomy)</strong><br>
-                  <ul>
-                      <li><strong>בחירה גמישה:</strong> המשתמשים יכולים לבחור תור מתוך מגוון אפשרויות ושירותים.</li>
-                      <li><strong>התאמה אישית:</strong> פרופיל אישי מאפשר ניהול העדפות כמו תזכורות וסוגי שירותים.</li>
-                      <li><strong>אינטראקציה לא פולשנית:</strong> ההתראות נשלחות רק כאשר יש צורך (למשל, תזכורת לתור), ללא כפייה.</li>
-                  </ul>
-              </p>
-          
-              <p>
-                  <strong>2- יכולת (Competence)</strong><br>
-                  <ul>
-                      <li><strong>ממשק ידידותי:</strong> עיצוב אינטואיטיבי מאפשר קביעת וניהול תורים בקלות.</li>
-                      <li><strong>משוב מיידי:</strong> הודעות כמו "התור נקבע בהצלחה" מחזקות תחושת שליטה והצלחה.</li>
-                      <li><strong>מניעת טעויות:</strong> חסימת תורים שכבר נתפסו מסייעת למשתמש להימנע משגיאות.</li>
-                      <li><strong>שירות לקוחות נגיש:</strong> תמיכה זמינה ישירות מהאפליקציה במקרה של קושי.</li>
-                  </ul>
-              </p>
-          
-              <p>
-                  <strong>3- שייכות (Relatedness)</strong><br>
-                  <ul>
-                      <li><strong>תקשורת עם הצוות:</strong> עדכונים על שינויים בתורים והצעות שירות מותאמות אישית.</li>
-                      <li><strong>תזכורות מותאמות:</strong> התראות שמעידות על אכפתיות ומגבירות מעורבות.</li>
-                      <li><strong>חוויית קהילה:</strong> הצגת חוות דעת והמלצות מחזקת תחושת שייכות בקרב המשתמשים.</li>
-                  </ul>
-              </p>
-            </div>
-            <div class="image-container">
-                <img src="sdt_theory.png" alt="SDT theory">
-            </div>
-          </div>
-      </section>
+                    <div class="image-container">
+                        <img src="boundary_objects.png" alt="Boundary Objects">
+                    </div>
 
 
-        <!-- Solution Architecture -->
-        <section class="section">
-            <h2 class="section-title">ארכיטקטורת הפתרון</h2>
-            <div class="text-content">
-              <p>
-                  <strong>1- סוג הארכיטקטורה</strong><br>
-                  לקוח-שרת: הנתונים מעובדים ומנוהלים בשרת אחורי, בעוד החלק הקדמי אחראי על חוויית המשתמש.<br>
-                  ניהול נתונים בשרת: המערכת משתמשת במסד נתונים מרוחק לניהול תורים ומידע רפואי.<br>
-                  אירוח בשרת חיצוני: האתר והממשק לתקשורת בין הלקוח לשרת מתארחים בענן (למשל, ‏Firebase, ‏AWS או Heroku) כדי להבטיח זמינות וביצועים.
-              </p>
-              
-              <p>
-                  <strong>2- דור ה-Web</strong><br>
-                  הפתרון מבוסס על רשת 2.0, עם ארכיטקטורת לקוח-שרת.<br>
-                  שימוש בטכנולוגיות ‏HTML, ‏CSS ו-jQuery ליצירת ממשק משתמש דינמי.
-              </p>
-              
-              <p>
-                  <strong>3- שימוש בתוכנה כשירות (SaaS) או בארכיטקטורת שירותים (SOA)</strong><br>
-                  המערכת מבוססת על תוכנה כשירות (SaaS) ומנוהלת בענן, כך שמשתמשים יכולים לגשת לשירותים דרך הדפדפן ללא צורך בהתקנת תוכנה.
-              </p>
-          </div>
-          
-        </section>
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2 class="section-title">13. יצירת מצב של "Group Flow"</h2>
+                <div class="text-image-section">
+                    <!-- Original content -->
+                    <div class="image-container">
+                        <img src="group_feature_flow.png" alt="Group Feature Flow">
+                    </div>
 
-        <!-- Architecture Structure -->
-        <section class="section">
-            <h2 class="section-title">מבנה הארכיטקטורה</h2>
-            <div class="text-image-section">
-              <div class="text-content">
-                <p>
-                    <strong>לקוח (חזית המערכת):</strong> ממשק המשתמש נבנה באמצעות ‏HTML, ‏CSS, jQuery ו-Bootstrap 5.
-                    <br>
-                    <strong>השרת (תהליכים פנימיים):</strong> השרת מנהל את הלוגיקה העסקית ומספק שירותים ללקוחות באמצעות ‏Node.js, ‏Express או Flask.
-                    <br>
-                    <strong>מסד נתונים:</strong> הנתונים נשמרים בשרת עם ‏MongoDB, ‏PostgreSQL או Firebase Realtime Database.
-                    <br>
-                    <strong>אירוח בשרת חיצוני:</strong> האתר מתארח בשרת ייעודי או בענן ומספק חוויית שימוש רציפה.
-                </p>
-              </div>
-              <div class="image-container">
-                  <img src="system_architecture.png" alt="System Architecture">
-              </div>
-            </div>
-        </section>
+                    <div class="text-content">
+                        <h2>יצירת מצב של "Group Flow"</h2>
+                    
+                        <h3>1. מטרות משותפות</h3>
+                        <p>
+                            לכל חברי הצוות מטרה ברורה: ניהול תורים יעיל ומתן מענה מיטבי למטופלים. 
+                            הצוות עושה שימוש באובייקטים משותפים (<em>Boundary Objects</em>), כמו לוח זמנים משותף, 
+                            שמגדירים את היעדים המשותפים ומאפשרים תיאום מדויק.
+                        </p>
+                    
+                        <h3>2. איזון בין תפקידים</h3>
+                        <p>
+                            המערכת מתאימה הרשאות באופן דינמי בהתאם להתמחויות חברי הצוות הפנויים במרפאה.
+                        </p>
+                    
+                        <h3>3. תקשורת פתוחה</h3>
+                        <p>
+                            שילוב מערכת הודעות פנימית מאפשר עדכון ושיתוף מידע בזמן אמת, 
+                            מה שמוביל לתגובה מהירה וייעול העבודה. 
+                            <br><strong>לדוגמה:</strong> "מטופל ביקש לשנות תור ליום שני ב-16:00." – המערכת מעדכנת את כל הגורמים הרלוונטיים.
+                        </p>
+                    
+                        <h3>4. תיאום ותלות הדדית</h3>
+                        <p>
+                            כל שינוי בתורים מתעדכן מידית אצל כל המשתמשים, 
+                            כך שהצוות עובד עם נתונים אחידים ומדויקים. 
+                            לכל חבר בצוות יש שקיפות מלאה לגבי פעולות האחרים, 
+                            למשל באמצעות סימונים ברורים בלוח הזמנים או התראות מערכת.
+                        </p>
+                    
+                        <h3>5. משוב קבוצתי</h3>
+                        <p>
+                            הצוות מקבל נתונים סטטיסטיים שוטפים, כגון עומס יומי, עמידה בזמנים ושביעות רצון המטופלים, 
+                            מה שמאפשר שיפור מתמיד של תהליכי העבודה וייעול השירות.
+                        </p>
+                    </div>
+                    
+                </div>
+            </section>
+    
+            <section class="section">
+                <h2 class="section-title">16. SDT Theory</h2>
+                <div class="text-image-section">
+                    <!-- Original content -->
 
-        <!-- Gamification Mechanisms -->
-        <section class="section">
-            <h2 class="section-title">מכניזמים של משחוק</h2>
-            <div class="text-image-section">
-              <div class="text-content">
-                <p>
-                    <strong>1- תגמולים ותמריצים:</strong>  
-                    לאחר כל הזמנת תור או השלמת משוב, המשתמש יכול לצבור נקודות או לקבל הנחה לשירותים עתידיים.  
-                    מתן תגמול מחזק התנהגות חיובית ומעודד מעורבות חוזרת.
-                    <br><br>
-                    <strong>2- משוב מיידי:</strong>  
-                    לאחר הזמנת תור, המשתמש מקבל הודעה מיידית עם עיצוב מהנה שמאשר את הפעולה ומעודד משוב.  
-                    תחושת השליטה והמשוב החיובי מגבירים את תחושת המסוגלות והמעורבות.
-                    <br><br>
-                    <strong>3- הפיכת השגרה למשחק:</strong>  
-                    יצירת "רצף טיפולים", שבו המשתמש מקבל תגמול על הזמנת תורים בצורה קבועה לאורך זמן.  
-                    הופך פעולות יומיומיות לחוויה מהנה ומתגמלת.
-                </p>
-              </div>
-              <div class="image-container">
-                  <img src="gamification.png" alt="Gamification">
-              </div>
-            </div>
-        </section>
+                    <div class="image-container">
+                        <img src="sdt_theory.png" alt="SDT theory">
+                    </div>
+
+                    <div class="text-content">
+                        <p>
+                            <strong>1- אוטונומיה (Autonomy)</strong><br>
+                            <ul>
+                                <li><strong>בחירה גמישה:</strong> המשתמשים יכולים לבחור תור מתוך מגוון אפשרויות ושירותים.</li>
+                                <li><strong>התאמה אישית:</strong> פרופיל אישי מאפשר ניהול העדפות כמו תזכורות וסוגי שירותים.</li>
+                                <li><strong>אינטראקציה לא פולשנית:</strong> ההתראות נשלחות רק כאשר יש צורך (למשל, תזכורת לתור), ללא כפייה.</li>
+                            </ul>
+                        </p>
+                    
+                        <p>
+                            <strong>2- יכולת (Competence)</strong><br>
+                            <ul>
+                                <li><strong>ממשק ידידותי:</strong> עיצוב אינטואיטיבי מאפשר קביעת וניהול תורים בקלות.</li>
+                                <li><strong>משוב מיידי:</strong> הודעות כמו "התור נקבע בהצלחה" מחזקות תחושת שליטה והצלחה.</li>
+                                <li><strong>מניעת טעויות:</strong> חסימת תורים שכבר נתפסו מסייעת למשתמש להימנע משגיאות.</li>
+                                <li><strong>שירות לקוחות נגיש:</strong> תמיכה זמינה ישירות מהאפליקציה במקרה של קושי.</li>
+                            </ul>
+                        </p>
+                    
+                        <p>
+                            <strong>3- שייכות (Relatedness)</strong><br>
+                            <ul>
+                                <li><strong>תקשורת עם הצוות:</strong> עדכונים על שינויים בתורים והצעות שירות מותאמות אישית.</li>
+                                <li><strong>תזכורות מותאמות:</strong> התראות שמעידות על אכפתיות ומגבירות מעורבות.</li>
+                                <li><strong>חוויית קהילה:</strong> הצגת חוות דעת והמלצות מחזקת תחושת שייכות בקרב המשתמשים.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">17. מכניזמים של משחוק</h2>
+                <div class="text-image-section">
+                    <div class="image-container">
+                        <img src="gamification.png" alt="Gamification">
+                    </div>
+                    <div class="text-content">
+                        <p>
+                            <strong>1- תגמולים ותמריצים:</strong><br>
+                            לאחר כל הזמנת תור או השלמת משוב, המשתמש יכול לצבור נקודות או לקבל הנחה לשירותים עתידיים.<br>
+                            מתן תגמול מחזק התנהגות חיובית ומעודד מעורבות חוזרת.
+                        </p>
+                        <p>
+                            <strong>2- משוב מיידי:</strong><br>
+                            לאחר הזמנת תור, המשתמש מקבל הודעה מיידית עם עיצוב מהנה שמאשר את הפעולה ומעודד משוב.<br>
+                            תחושת השליטה והמשוב החיובי מגבירים את תחושת המסוגלות והמעורבות.
+                        </p>
+                        <p>
+                            <strong>3- הפיכת השגרה למשחק:</strong><br>
+                            יצירת "רצף טיפולים", שבו המשתמש מקבל תגמול על הזמנת תורים בצורה קבועה לאורך זמן.<br>
+                            הופך פעולות יומיומיות לחוויה מהנה ומתגמלת.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 </body>
 </html>
